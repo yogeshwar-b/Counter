@@ -1,0 +1,10 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  place-items: center;
+  border: 2px solid red;
+}
+
+.fsize {
+  font-size: 200px;
+}
