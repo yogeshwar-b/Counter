@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./home.css";
 
-const Home = () => {
+const Counter = () => {
   const [count, ChangeCounter] = useState(0);
 
   return (
@@ -23,4 +23,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Counter;

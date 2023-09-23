@@ -1,10 +1,11 @@
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
   border: 2px solid red;
 }
 
 .fsize {
   font-size: 200px;
+  font-family: "Lato", sans-serif;
 }
