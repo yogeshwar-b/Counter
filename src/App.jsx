@@ -4,21 +4,20 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 const App = () => {
-  const [theme, setTheme] = useState(true);
+  const [theme, setTheme] = useState(0);
   useEffect(() => {
-    theme ? console.log("Dark Theme") : console.log("Light Theme");
+    theme ? setTheme("") : setTheme("dark");
   }, []);
 
   return (
-    <div className="mainplate">
+    <div className={"mainplate " + theme}>
       <div>
         Dark Mode
         <input
           type="checkbox"
           checked={theme}
           onChange={() => {
-            setTheme(!theme);
-            console.log("Theme Changed");
+            theme ? setTheme("") : setTheme("dark");
           }}
         />
       </div>

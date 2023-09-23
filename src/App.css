@@ -1,7 +1,12 @@
 .mainplate {
-  padding: 10%;
+  padding: 9em 5em;
+  height: 100%;
 }
 
 table {
   border: 1px solid black;
+}
+
+.dark {
+  background-color: gray;
 }
