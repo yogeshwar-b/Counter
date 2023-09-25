@@ -21,3 +21,24 @@
   }
 }
 
+.animate-count-enter {
+  opacity: 0;
+}
+.animate-count-enter-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+.animate-count-enter-done {
+  opacity: 1;
+}
+
+.animate-count-exit {
+  opacity: 1;
+}
+.animate-count-exit-active {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+.animate-count-exit-done {
+  opacity: 0;
+}
