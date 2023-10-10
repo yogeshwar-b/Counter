@@ -8,9 +8,9 @@ table {
 }
 
 .dark {
-  background-color: gray;
+  background-color: black;
 }
-.darkmodeswitch {
+.div-center {
   display: flex;
   justify-content: center;
 }

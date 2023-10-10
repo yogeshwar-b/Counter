@@ -1,22 +1,25 @@
 import Counter from "./components/home";
-
+import { TransitionSelect } from "./components/TransitionSelect";
 import { useState } from "react";
 import "./App.css";
 import MaterialUISwitch from "./components/switch";
 const App = () => {
-  const [theme, setTheme] = useState("dark");
+  const [themeclass, setThemeClass] = useState("dark");
 
   return (
-    <div className={"mainplate " + theme}>
-      <div className="darkmodeswitch">
+    <div className={"mainplate " + themeclass}>
+      <div className="div-center">
         <MaterialUISwitch
           onChange={() => {
-            theme ? setTheme("") : setTheme("dark");
+            themeclass ? setThemeClass("") : setThemeClass("dark");
           }}
           defaultChecked
         />
       </div>
-      <Counter />
+      <div className="div-center">
+        <TransitionSelect themedata={themeclass} />
+      </div>
+      <Counter themedata={themeclass} />
     </div>
   );
 };
