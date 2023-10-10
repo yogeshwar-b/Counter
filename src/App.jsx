@@ -1,24 +1,19 @@
 import Counter from "./components/home";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
-
+import MaterialUISwitch from "./components/switch";
 const App = () => {
-  const [theme, setTheme] = useState(0);
-  useEffect(() => {
-    theme ? setTheme("") : setTheme("dark");
-  }, []);
+  const [theme, setTheme] = useState("dark");
 
   return (
     <div className={"mainplate " + theme}>
-      <div>
-        Dark Mode
-        <input
-          type="checkbox"
-          checked={theme}
+      <div className="darkmodeswitch">
+        <MaterialUISwitch
           onChange={() => {
             theme ? setTheme("") : setTheme("dark");
           }}
+          defaultChecked
         />
       </div>
       <Counter />

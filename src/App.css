@@ -10,3 +10,7 @@ table {
 .dark {
   background-color: gray;
 }
+.darkmodeswitch {
+  display: flex;
+  justify-content: center;
+}
