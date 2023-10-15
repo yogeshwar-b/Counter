@@ -1,0 +1,17 @@
+.flat-select {
+  border: none;
+  font-size: 2rem;
+  background-color: aliceblue;
+  cursor: pointer;
+}
+.flat-select:focus {
+  outline: none;
+}
+.mainplate-dark .flat-select {
+  background-color: black;
+  color: aliceblue;
+}
+
+.flat-select-option {
+  border: none;
+}
