@@ -7,7 +7,7 @@ export const ThemeContext = createContext();
 export const TransitionContext = createContext();
 
 const App = () => {
-  const [transitionName, setTransitionName] = useState("fade");
+  const [transitionName, setTransitionName] = useState("none");
   const [themeclass, setThemeClass] = useState("-dark");
   return (
     <TransitionContext.Provider value={{ transitionName, setTransitionName }}>
