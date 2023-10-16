@@ -3,11 +3,11 @@ import "./home.css";
 import { CSSTransition } from "react-transition-group";
 import { TransitionTimeOut } from "./constants";
 import PropTypes from "prop-types";
-import { ThemeContext } from "../App";
+import { ThemeContext, TransitionContext } from "../App";
 
 const Counter = () => {
   const themeclass = useContext(ThemeContext);
-  console.log(themeclass);
+  const { transitionName, setTransitionName } = useContext(TransitionContext);
   const [count, ChangeCounter] = useState(0);
   //Determines if the state is entering or exiting.
   const [isEnter, ChangeIsEnter] = useState(true);
@@ -32,7 +32,7 @@ const Counter = () => {
       <CSSTransition
         in={isEnter}
         timeout={TransitionTimeOut}
-        classNames="animate-count"
+        classNames={"animate-count-" + transitionName}
       >
         <div className={"fsize" + themeclass + " grid-item"}>{count}</div>
       </CSSTransition>

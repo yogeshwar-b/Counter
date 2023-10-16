@@ -31,25 +31,40 @@
     font-weight: 700;
   }
 }
-
-.animate-count-enter {
+/* fadeTransition */
+.animate-count-fade-enter {
   opacity: 0;
 }
-.animate-count-enter-active {
+.animate-count-fade-enter-active {
   opacity: 1;
   transition: opacity 500ms;
 }
-.animate-count-enter-done {
+.animate-count-fade-enter-done {
   opacity: 1;
 }
 
-.animate-count-exit {
+.animate-count-fade-exit {
   opacity: 1;
 }
-.animate-count-exit-active {
+.animate-count-fade-exit-active {
   opacity: 0;
   transition: opacity 500ms;
 }
-.animate-count-exit-done {
+.animate-count-fade-exit-done {
   opacity: 0;
+}
+
+/* NoneTransition */
+.animate-count-none-enter {
+}
+.animate-count-none-enter-active {
+}
+.animate-count-none-enter-done {
+}
+
+.animate-count-none-exit {
+}
+.animate-count-none-exit-active {
+}
+.animate-count-none-exit-done {
 }
