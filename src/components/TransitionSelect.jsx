@@ -17,7 +17,7 @@ export const TransitionSelect = () => {
       >
         {TransitionList.map((item) => {
           return (
-            <option className="flat-select-option" value={item}>
+            <option key={item} className="flat-select-option" value={item}>
               {item}
             </option>
           );

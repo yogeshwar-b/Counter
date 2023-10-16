@@ -10,39 +10,64 @@ const Counter = () => {
   const { transitionName, setTransitionName } = useContext(TransitionContext);
   const [count, ChangeCounter] = useState(0);
   //Determines if the state is entering or exiting.
-  const [isEnter, ChangeIsEnter] = useState(true);
+  const [isEnter1, ChangeIsEnter1] = useState(true);
+  const [isEnter2, ChangeIsEnter2] = useState(false);
   // const textsizeclass = "fsize" + themeclass;
-  function timeout(delay) {
-    return new Promise((res) => setTimeout(res, delay));
-  }
 
   return (
     <div className="grid-container">
       <div
         className={"fsize" + themeclass + " grid-item"}
         onClick={async () => {
-          ChangeIsEnter(false);
-          await timeout(TransitionTimeOut);
-          ChangeCounter((oldCount) => oldCount - 1);
-          ChangeIsEnter(true);
+          if (isEnter1) {
+            isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
+            ChangeCounter((oldCount) => oldCount - 1);
+            isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
+          } else {
+            isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
+            ChangeCounter((oldCount) => oldCount - 1);
+            isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
+          }
         }}
       >
         -
       </div>
-      <CSSTransition
-        in={isEnter}
-        timeout={TransitionTimeOut}
-        classNames={"animate-count-" + transitionName}
-      >
-        <div className={"fsize" + themeclass + " grid-item"}>{count}</div>
-      </CSSTransition>
+      <div style={{ display: "block" }}>
+        <CSSTransition
+          in={isEnter1}
+          timeout={TransitionTimeOut}
+          classNames={"animate-count-" + transitionName}
+        >
+          {isEnter1 ? (
+            <div className={"fsize" + themeclass + " grid-item"}>{count}</div>
+          ) : (
+            <div></div>
+          )}
+        </CSSTransition>
+        <CSSTransition
+          in={isEnter2}
+          timeout={TransitionTimeOut}
+          classNames={"animate-count-" + transitionName}
+        >
+          {isEnter2 ? (
+            <div className={"fsize" + themeclass + " grid-item"}>{count}</div>
+          ) : (
+            <div></div>
+          )}
+        </CSSTransition>
+      </div>
       <div
         className={"fsize" + themeclass + " grid-item"}
         onClick={async () => {
-          if (isEnter) ChangeIsEnter(false);
-          await timeout(TransitionTimeOut);
-          ChangeCounter((oldCount) => oldCount + 1);
-          ChangeIsEnter(true);
+          if (isEnter1) {
+            isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
+            ChangeCounter((oldCount) => oldCount + 1);
+            isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
+          } else {
+            isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
+            ChangeCounter((oldCount) => oldCount + 1);
+            isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
+          }
         }}
       >
         +
