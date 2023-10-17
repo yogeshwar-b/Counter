@@ -4,6 +4,10 @@ import { CSSTransition, Transition } from "react-transition-group";
 import { TransitionTimeOut } from "./constants";
 import { ThemeContext, TransitionContext } from "../App";
 import { red } from "@mui/material/colors";
+function timeout(delay) {
+  return new Promise((res) => setTimeout(res, delay));
+}
+var isProcessing = false;
 
 const Counter = () => {
   const themeclass = useContext(ThemeContext);
@@ -13,18 +17,18 @@ const Counter = () => {
   const [isEnter1, ChangeIsEnter1] = useState(true);
   const [isEnter2, ChangeIsEnter2] = useState(false);
   // const textsizeclass = "fsize" + themeclass;
-  const duration = 1000;
+  const duration = 400;
 
   const defaultStyle = {
     // position: "absolute",
-    transition: `opacity ${duration}ms ease-in-out`,
+    // transition: `opacity ${duration}ms`,
     opacity: 0,
   };
 
   const transitionStyles = {
-    entering: { opacity: 1 },
+    entering: { opacity: 1, transition: `opacity ${duration}ms ease-in` },
     entered: { opacity: 1 },
-    exiting: { opacity: 0 },
+    exiting: { opacity: 0, transition: `opacity ${duration}ms ease-out` },
     exited: { opacity: 0 },
   };
 
@@ -32,15 +36,21 @@ const Counter = () => {
     <div className="grid-container">
       <div
         className={"fsize" + themeclass + " grid-item"}
-        onClick={() => {
-          if (isEnter1) {
-            isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
-            ChangeCounter((oldCount) => oldCount - 1);
-            isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
-          } else {
-            isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
-            ChangeCounter((oldCount) => oldCount - 1);
-            isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
+        onClick={async () => {
+          if (!isProcessing) {
+            isProcessing = true;
+            if (isEnter1) {
+              isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
+              await timeout(duration);
+              ChangeCounter((oldCount) => oldCount - 1);
+              isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
+            } else {
+              isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
+              await timeout(duration);
+              ChangeCounter((oldCount) => oldCount - 1);
+              isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
+            }
+            isProcessing = false;
           }
         }}
       >
@@ -77,13 +87,15 @@ const Counter = () => {
       </div>
       <div
         className={"fsize" + themeclass + " grid-item"}
-        onClick={() => {
+        onClick={async () => {
           if (isEnter1) {
             isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
+            await timeout(duration);
             ChangeCounter((oldCount) => oldCount + 1);
             isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
           } else {
             isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
+            await timeout(duration);
             ChangeCounter((oldCount) => oldCount + 1);
             isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
           }
