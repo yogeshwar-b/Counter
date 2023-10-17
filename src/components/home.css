@@ -4,6 +4,17 @@
   place-items: center;
   /* border: 2px solid red; */
 }
+.grid-item {
+}
+.redbg {
+  background-color: red;
+}
+.bluebg {
+  background-color: blue;
+}
+.greenbg {
+  background-color: green;
+}
 .fsize {
   font-size: 20rem;
   font-family: "Lato", sans-serif;

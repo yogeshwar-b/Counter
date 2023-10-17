@@ -11,6 +11,7 @@ export const TransitionSelect = () => {
         className="flat-select"
         name="TransitionSelect"
         id="TransitionSelect"
+        value={TransitionName}
         onChange={(e) => {
           setTransitionName(e.target.value);
         }}
