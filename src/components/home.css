@@ -1,7 +1,8 @@
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
+  grid-template-columns: 33% 33% 33%;
+  justify-items: center;
+  justify-content: center;
   /* border: 2px solid red; */
 }
 .grid-item {
@@ -11,6 +12,11 @@
 }
 .bluebg {
   background-color: blue;
+}
+.flex-center {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
 }
 .greenbg {
   background-color: green;
@@ -29,7 +35,7 @@
   color: aliceblue;
 }
 
-@media screen and (max-width: 556px) {
+@media screen and (max-width: 800px) {
   .grid-container {
     grid-template-columns: auto;
   }
@@ -40,6 +46,10 @@
   .fsize-dark {
     font-size: 10rem;
     font-weight: 700;
+  }
+  .flex-center {
+    align-items: center;
+    align-content: center;
   }
 }
 /* fadeTransition */
