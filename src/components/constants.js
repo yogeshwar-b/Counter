@@ -30,4 +30,25 @@ export const TransitionList = [
       exited: { opacity: 0 },
     },
   },
+  {
+    name: "Slide Left",
+    transitiondata: {
+      entering: {
+        opacity: 1,
+        transition: `opacity ${TransitionDuration}ms linear`,
+      },
+      entered: {
+        opacity: 1,
+      },
+      exiting: {
+        opacity: 0,
+        translate: "-150px",
+        transition: `opacity  ${TransitionDuration}ms linear,translate ${TransitionDuration}ms linear`,
+      },
+      exited: {
+        opacity: 0,
+        translate: "150px",
+      },
+    },
+  },
 ];
