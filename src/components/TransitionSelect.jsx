@@ -1,16 +1,16 @@
 import { TransitionList } from "./constants";
 import "./TransitionSelect.css";
 import { useContext } from "react";
-import { TransitionContext } from "../App";
+import { TransitionContext, ThemeContext } from "../App";
 export const TransitionSelect = () => {
-  const { transitionName, setTransitionName } = useContext(TransitionContext);
+  const { transitionItem, setTransitionName } = useContext(TransitionContext);
   return (
     <div>
       <select
         className="flat-select"
         name="TransitionSelect"
         id="TransitionSelect"
-        value={transitionName}
+        value={transitionItem}
         onChange={(e) => {
           setTransitionName(e.target.value);
         }}

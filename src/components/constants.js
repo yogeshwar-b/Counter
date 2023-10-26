@@ -1,5 +1,7 @@
 // Transition Time out in milliseconds
 export const TransitionDuration = 400;
+// Index of Default Transition
+export const DefaultTransition = 2;
 // List of Transitions for Transition Select list
 export const TransitionList = [
   {
@@ -47,7 +49,28 @@ export const TransitionList = [
       },
       exited: {
         opacity: 0,
+        translate: "0px",
+      },
+    },
+  },
+  {
+    name: "Slide Right",
+    transitiondata: {
+      entering: {
+        opacity: 1,
+        transition: `opacity ${TransitionDuration}ms linear`,
+      },
+      entered: {
+        opacity: 1,
+      },
+      exiting: {
+        opacity: 0,
         translate: "150px",
+        transition: `opacity  ${TransitionDuration}ms linear,translate ${TransitionDuration}ms linear`,
+      },
+      exited: {
+        opacity: 0,
+        translate: "0px",
       },
     },
   },

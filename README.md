@@ -1,8 +1,9 @@
-# React + Vite
+# Counter App with Custom Animations Selector
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+All the Animations are coded using transitions from <a href="https://reactcommunity.org/react-transition-group/">React Transition Group</a>.
 
-Currently, two official plugins are available:
+The Application is ready to deployed.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+If you want to add new transitions, you have to add them to constants.js.
+
+<h1><a href="https://yogeshwar-b.github.io/Counter/"> LIVE DEMO </a> </h1>

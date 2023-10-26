@@ -3,12 +3,14 @@ import { TransitionSelect } from "./components/TransitionSelect";
 import { createContext, useState } from "react";
 import "./App.css";
 import MaterialUISwitch from "./components/switch";
-import { TransitionList } from "./components/constants";
+import { TransitionList, DefaultTransition } from "./components/constants";
 export const ThemeContext = createContext();
 export const TransitionContext = createContext();
 
 const App = () => {
-  const [transitionItem, setTransitionName] = useState(TransitionList[0].name);
+  const [transitionItem, setTransitionName] = useState(
+    TransitionList[DefaultTransition].name
+  );
   const [themeclass, setThemeClass] = useState("-dark");
   return (
     <TransitionContext.Provider value={{ transitionItem, setTransitionName }}>
