@@ -32,10 +32,12 @@ const Counter = () => {
             if (isEnter1) {
               ChangeIsEnter1(false);
               ChangeCounter2(count1 - 1);
+              ChangeCounter1(count1 - 1);
               ChangeIsEnter2(true);
             } else {
               ChangeIsEnter2(false);
               ChangeCounter1(count2 - 1);
+              ChangeCounter2(count2 - 1);
               ChangeIsEnter1(true);
             }
             isProcessing = false;
