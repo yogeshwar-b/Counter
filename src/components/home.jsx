@@ -18,7 +18,6 @@ const Counter = () => {
   //Determines if the state is entering or exiting.
   const [isEnter1, ChangeIsEnter1] = useState(true);
   const [isEnter2, ChangeIsEnter2] = useState(false);
-  // console.log(transitionItem);
   const currentTransition = TransitionList.find((obj) => {
     return obj.name == transitionItem;
   }).transitiondata;
@@ -31,15 +30,13 @@ const Counter = () => {
           if (!isProcessing) {
             isProcessing = true;
             if (isEnter1) {
-              isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
-              // await timeout(duration);
+              ChangeIsEnter1(false);
               ChangeCounter2(count1 - 1);
-              isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
+              ChangeIsEnter2(true);
             } else {
-              isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
-              // await timeout(duration);
+              ChangeIsEnter2(false);
               ChangeCounter1(count2 - 1);
-              isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
+              ChangeIsEnter1(true);
             }
             isProcessing = false;
           }
@@ -47,15 +44,14 @@ const Counter = () => {
       >
         -
       </div>
-      <div className="grid-item flex-center">
+      <div className="grid-stack">
         <Transition in={isEnter1} timeout={TransitionDuration}>
           {(state) => (
             <div
               style={{
                 ...currentTransition[state],
-                position: "absolute",
               }}
-              className={"fsize" + themeclass}
+              className={"grid-stack-item fsize" + themeclass}
             >
               {count1}
             </div>
@@ -66,9 +62,8 @@ const Counter = () => {
             <div
               style={{
                 ...currentTransition[state],
-                position: "absolute",
               }}
-              className={"fsize" + themeclass}
+              className={"grid-stack-item fsize" + themeclass}
             >
               {count2}
             </div>
@@ -79,15 +74,15 @@ const Counter = () => {
         className={"fsize" + themeclass + " grid-item"}
         onClick={async () => {
           if (isEnter1) {
-            isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
+            ChangeIsEnter1(false);
             // await timeout(duration);
             ChangeCounter2(count1 + 1);
-            isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
+            ChangeIsEnter2(true);
           } else {
-            isEnter2 ? ChangeIsEnter2(false) : ChangeIsEnter2(true);
+            ChangeIsEnter2(false);
             // await timeout(duration);
             ChangeCounter1(count2 + 1);
-            isEnter1 ? ChangeIsEnter1(false) : ChangeIsEnter1(true);
+            ChangeIsEnter1(true);
           }
         }}
       >
